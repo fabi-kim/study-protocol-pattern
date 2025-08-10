@@ -49,3 +49,45 @@ classDiagram
     Protocol --> Staking
     Protocol --> Unstaking
 ```
+
+* 디자인 패턴 적용 v0.2
+  * Observer 패턴으로 블록 조회, 파싱 로직 분리
+  * !! 블록 조회 입출금 파싱에 사용하려고 했지만 하나의 subject에 하나의 Observer가 결합되는 일대일 구조여서 우선 필요없을듯
+```mermaid
+classDiagram
+
+%% ===== dto =====
+class Block
+<<interface>> Block
+class EvmBlock
+EvmBlock ..|> Block
+
+%% ===== protocol core =====
+class BlockParser
+<<interface>> BlockParser
+class Protocol
+class KaiaProtocol
+
+
+KaiaProtocol --|> Protocol
+KaiaProtocol ..|> BlockParser
+
+
+
+%% ===== pubsub =====
+class Subject
+<<interface>> Subject
+class BlockSubject
+BlockSubject ..|> Subject
+
+class Observer
+<<interface>> Observer
+class BlockObserver
+BlockObserver ..|> Observer
+
+%% ===== associations =====
+BlockObserver --> BlockParser : uses
+BlockObserver --> Block : parses
+BlockSubject o-- Observer : observers
+BlockSubject --> Block : emits
+```
