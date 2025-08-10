@@ -5,6 +5,7 @@ import protocol.unstaking.Unstaking;
 import utils.DateUtil;
 
 public class CosmosUnstaking implements Unstaking {
+
   private final String symbol;
   private final int unlockdurationDay;
 
@@ -30,7 +31,7 @@ public class CosmosUnstaking implements Unstaking {
 
   @Override
   public String getExpectedUnlockDate(String txHash) {
-    return symbol+" txHash(" + txHash + ")에 대한 위임해제 완료 시간 : " + DateUtil.addDay(new Date(),
+    return symbol + " txHash(" + txHash + ")에 대한 위임해제 완료 시간 : " + DateUtil.addDay(new Date(),
         unlockdurationDay);
   }
 }

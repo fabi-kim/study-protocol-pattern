@@ -5,6 +5,7 @@ import protocol.staking.Staking;
 import protocol.unstaking.Unstaking;
 
 public class CosmosProtocol extends Protocol {
+
   private final String symbol;
 
   protected CosmosProtocol(String symbol, Staking staking, Unstaking unstaking) {
@@ -14,8 +15,8 @@ public class CosmosProtocol extends Protocol {
 
   @Override
   public String getBalance(String address) {
-    System.out.println(symbol+ " 잔고: 123");
-    return symbol+ " 잔고";
+    System.out.println(symbol + " 잔고: 123");
+    return symbol + " 잔고";
   }
 
   @Override

@@ -5,8 +5,8 @@ import protocol.unstaking.Unstaking;
 
 public class SuiUnstaking implements Unstaking {
 
-  private int unlockdurationDay;
-  private boolean needWithdraw;
+  private final int unlockdurationDay;
+  private final boolean needWithdraw;
 
   public SuiUnstaking() {
     this.unlockdurationDay = 0;

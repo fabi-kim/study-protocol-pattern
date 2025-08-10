@@ -1,6 +1,5 @@
 package protocol.impl.cosmos;
 
-import protocol.Protocol;
 import protocol.impl.CosmosProtocol;
 import protocol.staking.impl.cosmos.AtomStaking;
 import protocol.unstaking.impl.cosmos.AtomUnstaking;

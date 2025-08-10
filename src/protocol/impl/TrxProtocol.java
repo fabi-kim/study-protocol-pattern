@@ -1,9 +1,7 @@
 package protocol.impl;
 
 import protocol.Protocol;
-import protocol.staking.Staking;
 import protocol.staking.impl.TrxStaking;
-import protocol.unstaking.Unstaking;
 import protocol.unstaking.impl.TrxUnstaking;
 
 public class TrxProtocol extends Protocol {

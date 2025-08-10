@@ -7,7 +7,7 @@ public class TrxStaking implements Staking {
 
   @Override
   public String getStakingBalance(String address) {
-    return address+": TRX 스테이킹 잔고";
+    return address + ": TRX 스테이킹 잔고";
   }
 
   @Override

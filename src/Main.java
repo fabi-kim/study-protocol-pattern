@@ -3,7 +3,6 @@ import protocol.impl.TrxProtocol;
 import protocol.impl.cosmos.AtomProtocol;
 import protocol.impl.cosmos.KaiaProtocol;
 import pubsub.observer.impl.BlockObserver;
-import pubsub.subject.Subject;
 import pubsub.subject.impl.BlockSubject;
 import service.ProtocolService;
 
@@ -30,7 +29,6 @@ public class Main {
         "0xe6e41732385c71d6",
         "0xc5043f"
     ));
-
 
     subject.getBlock(11, new EvmBlock(
         "0xa917fcc721a5465a484e9be17cda0cc5493933dd3bc70c9adbee192cb419c9d7",

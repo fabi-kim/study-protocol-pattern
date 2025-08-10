@@ -17,7 +17,8 @@ public class BlockObserver implements Observer {
   @Override
   public boolean parseAndUpdate(Block block) {
     ParsedBlock parsedBlock = blockParser.parse(block);
-    System.out.println("[BlockObserver.parseAndUpdate]" + blockParser.getClass() + ".parse 응답 => " + parsedBlock);
+    System.out.println(
+        "[BlockObserver.parseAndUpdate]" + blockParser.getClass() + ".parse 응답 => " + parsedBlock);
     return true;
   }
 }

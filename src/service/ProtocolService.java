@@ -21,7 +21,7 @@ public class ProtocolService {
     String signedTx = protocol.sign(unsignedTx);
     System.out.println(signedTx);
 
-    String txHash =  protocol.broadcast(signedTx);
+    String txHash = protocol.broadcast(signedTx);
     System.out.println(txHash);
     return true;
   }
@@ -37,10 +37,12 @@ public class ProtocolService {
     String signedTx = protocol.sign(unsignedTx);
     System.out.println(signedTx);
 
-    String txHash =  protocol.broadcast(signedTx);
+    String txHash = protocol.broadcast(signedTx);
     System.out.println(txHash);
 
-    if(!protocol.isNeededWithdraw()) return true;
+    if (!protocol.isNeededWithdraw()) {
+      return true;
+    }
 
     String unsignedWithdrawTx = protocol.createUnsignedUnstakedWithdrawTransaction(address);
     System.out.println(unsignedWithdrawTx);
@@ -48,7 +50,7 @@ public class ProtocolService {
     String signedWithdrawTx = protocol.sign(unsignedWithdrawTx);
     System.out.println(signedWithdrawTx);
 
-    String withdrawTxHash =  protocol.broadcast(signedWithdrawTx);
+    String withdrawTxHash = protocol.broadcast(signedWithdrawTx);
     System.out.println(withdrawTxHash);
 
     return true;

@@ -5,8 +5,6 @@ import protocol.Protocol;
 import protocol.dto.Block;
 import protocol.dto.EvmBlock;
 import protocol.dto.ParsedBlock;
-import protocol.staking.impl.TrxStaking;
-import protocol.unstaking.impl.TrxUnstaking;
 
 public class KaiaProtocol extends Protocol implements BlockParser {
 

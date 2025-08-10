@@ -12,7 +12,7 @@ public class CosmosStaking implements Staking {
 
   @Override
   public String getStakingBalance(String address) {
-    return address+":"+symbol+"스테이킹 잔고";
+    return address + ":" + symbol + "스테이킹 잔고";
   }
 
   @Override

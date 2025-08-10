@@ -6,7 +6,7 @@ import utils.DateUtil;
 
 public class TrxUnstaking implements Unstaking {
 
-  private int unlockdurationDay;
+  private final int unlockdurationDay;
 
   public TrxUnstaking() {
     this.unlockdurationDay = 14;
