@@ -1,4 +1,4 @@
-package protocol.impl.cosmos;
+package protocol.impl;
 
 import protocol.BlockParser;
 import protocol.Protocol;

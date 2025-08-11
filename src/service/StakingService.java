@@ -2,11 +2,11 @@ package service;
 
 import protocol.Protocol;
 
-public class ProtocolService {
+public class StakingService {
 
   private final Protocol protocol;
 
-  public ProtocolService(Protocol protocol) {
+  public StakingService(Protocol protocol) {
     this.protocol = protocol;
   }
 

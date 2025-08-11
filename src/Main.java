@@ -1,19 +1,20 @@
 import protocol.dto.EvmBlock;
+import protocol.impl.KaiaProtocol;
 import protocol.impl.TrxProtocol;
 import protocol.impl.cosmos.AtomProtocol;
-import protocol.impl.cosmos.KaiaProtocol;
 import pubsub.observer.impl.BlockObserver;
 import pubsub.subject.impl.BlockSubject;
-import service.ProtocolService;
+import service.NodeService;
+import service.StakingService;
 
 public class Main {
 
 
   public static void main(String[] args) {
-    ProtocolService atomService = new ProtocolService(new AtomProtocol());
+    StakingService atomService = new StakingService(new AtomProtocol());
     atomService.stakingFlow("testAddress");
     atomService.unstakingFlow("testAddress");
-    ProtocolService trxService = new ProtocolService(new TrxProtocol());
+    StakingService trxService = new StakingService(new TrxProtocol());
     trxService.stakingFlow("testAddress");
     trxService.unstakingFlow("testAddress");
 
@@ -38,5 +39,13 @@ public class Main {
         "0xc5043f"
     ));
 
+    System.out.println("get Balance");
+    NodeService nodeService = new NodeService();
+    nodeService.getBalance("KAIA", "testAddress");
+    nodeService.getBalance("TRX", "testAddress");
+
+    System.out.println("get comsmos Balance");
+    nodeService.getCosmosBalance("ATOM", "testAddress");
+    nodeService.getCosmosBalance("SEI", "testAddress");
   }
 }
