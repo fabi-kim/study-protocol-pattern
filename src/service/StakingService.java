@@ -10,49 +10,11 @@ public class StakingService {
     this.protocol = protocol;
   }
 
-  public boolean stakingFlow(String address) {
-
-    if (protocol.getBalance(address) == null) {
-      return false;
-    }
-    String unsignedTx = protocol.createUnsignedStakingTransaction(address);
-    System.out.println(unsignedTx);
-
-    String signedTx = protocol.sign(unsignedTx);
-    System.out.println(signedTx);
-
-    String txHash = protocol.broadcast(signedTx);
-    System.out.println(txHash);
+  public boolean stakingFlow(String address, String amount) {
     return true;
   }
 
-  public boolean unstakingFlow(String address) {
-
-    if (protocol.getStakingBalance(address) == null) {
-      return false;
-    }
-    String unsignedTx = protocol.createUnsignedStakingTransaction(address);
-    System.out.println(unsignedTx);
-
-    String signedTx = protocol.sign(unsignedTx);
-    System.out.println(signedTx);
-
-    String txHash = protocol.broadcast(signedTx);
-    System.out.println(txHash);
-
-    if (!protocol.isNeededWithdraw()) {
-      return true;
-    }
-
-    String unsignedWithdrawTx = protocol.createUnsignedUnstakedWithdrawTransaction(address);
-    System.out.println(unsignedWithdrawTx);
-
-    String signedWithdrawTx = protocol.sign(unsignedWithdrawTx);
-    System.out.println(signedWithdrawTx);
-
-    String withdrawTxHash = protocol.broadcast(signedWithdrawTx);
-    System.out.println(withdrawTxHash);
-
+  public boolean unstakingFlow(String address, String amount) {
     return true;
   }
 }

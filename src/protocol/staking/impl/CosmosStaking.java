@@ -16,7 +16,7 @@ public class CosmosStaking implements Staking {
   }
 
   @Override
-  public String createUnsignedStakingTransaction() {
-    return "0x123";
+  public String createUnsignedStakingTransaction(String address, String amount) {
+    return "address : " + address + ", amount: " + amount + "-0x456" + symbol;
   }
 }

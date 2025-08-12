@@ -13,8 +13,8 @@ public class TrxUnstaking implements Unstaking {
   }
 
   @Override
-  public String createUnsignedUntakingTransaction() {
-    return "0x456";
+  public String createUnsignedUnstakingTransaction(String address, String amount) {
+    return "address : " + address + ", amount: " + amount + "-0x456" + "trx";
   }
 
   @Override
@@ -23,7 +23,7 @@ public class TrxUnstaking implements Unstaking {
   }
 
   @Override
-  public String createUnsignedUnstakedWithdrawTransaction() {
+  public String createUnsignedUnstakedWithdrawTransaction(String address) {
     return "0x789";
   }
 

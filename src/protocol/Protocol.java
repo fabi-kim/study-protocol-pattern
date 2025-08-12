@@ -23,12 +23,12 @@ public abstract class Protocol {
     return staking.getStakingBalance(address);
   }
 
-  public String createUnsignedStakingTransaction(String address) {
-    return staking.createUnsignedStakingTransaction();
+  public String createUnsignedStakingTransaction(String address, String amount) {
+    return staking.createUnsignedStakingTransaction(address, amount);
   }
 
-  public String createUnsignedUntakingTransaction() {
-    return unstaking.createUnsignedUntakingTransaction();
+  public String createUnsignedUntakingTransaction(String address, String amount) {
+    return unstaking.createUnsignedUnstakingTransaction(address, amount);
   }
 
   public boolean isNeededWithdraw() {
@@ -36,6 +36,6 @@ public abstract class Protocol {
   }
 
   public String createUnsignedUnstakedWithdrawTransaction(String address) {
-    return unstaking.createUnsignedUnstakedWithdrawTransaction();
+    return unstaking.createUnsignedUnstakedWithdrawTransaction(address);
   }
 }

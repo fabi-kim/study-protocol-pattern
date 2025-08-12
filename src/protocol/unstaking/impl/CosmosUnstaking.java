@@ -15,8 +15,8 @@ public class CosmosUnstaking implements Unstaking {
   }
 
   @Override
-  public String createUnsignedUntakingTransaction() {
-    return "0x456";
+  public String createUnsignedUnstakingTransaction(String address, String amount) {
+    return "address : " + address + ", amount: " + amount + "-0x456" + symbol;
   }
 
   @Override
@@ -25,7 +25,7 @@ public class CosmosUnstaking implements Unstaking {
   }
 
   @Override
-  public String createUnsignedUnstakedWithdrawTransaction() {
+  public String createUnsignedUnstakedWithdrawTransaction(String address) {
     throw new UnsupportedOperationException();
   }
 

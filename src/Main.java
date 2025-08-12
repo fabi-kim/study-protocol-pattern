@@ -1,22 +1,13 @@
 import protocol.dto.EvmBlock;
 import protocol.impl.KaiaProtocol;
-import protocol.impl.TrxProtocol;
-import protocol.impl.cosmos.AtomProtocol;
 import pubsub.observer.impl.BlockObserver;
 import pubsub.subject.impl.BlockSubject;
 import service.NodeService;
-import service.StakingService;
 
 public class Main {
 
 
   public static void main(String[] args) {
-    StakingService atomService = new StakingService(new AtomProtocol());
-    atomService.stakingFlow("testAddress");
-    atomService.unstakingFlow("testAddress");
-    StakingService trxService = new StakingService(new TrxProtocol());
-    trxService.stakingFlow("testAddress");
-    trxService.unstakingFlow("testAddress");
 
     System.out.println("block Observer");
 
