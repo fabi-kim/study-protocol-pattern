@@ -1,4 +1,9 @@
 import protocol.dto.EvmBlock;
+import protocol.handler.JobManager;
+import protocol.handler.dto.JobDto;
+import protocol.handler.dto.ProtocolRequestDto;
+import protocol.handler.enums.JobType;
+import protocol.handler.enums.Status;
 import protocol.impl.KaiaProtocol;
 import protocol.impl.TrxProtocol;
 import protocol.impl.cosmos.AtomProtocol;
@@ -10,7 +15,7 @@ import service.StakingService;
 public class Main {
 
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws InterruptedException {
 
     System.out.println("---template method pattern---");
     StakingService atomService = new StakingService(new AtomProtocol());
@@ -46,5 +51,22 @@ public class Main {
     System.out.println("get comsmos Balance");
     nodeService.getCosmosBalance("ATOM", "testAddress");
     nodeService.getCosmosBalance("SEI", "testAddress");
+
+    System.out.println("---job manager");
+    JobManager jobManager = new JobManager(new TrxProtocol());
+
+    jobManager.setJob(
+        new JobDto(1, new ProtocolRequestDto("test-address", "123"), JobType.UNSTAKING,
+            Status.READY));
+    jobManager.setJob(
+        new JobDto(2, new ProtocolRequestDto("test-address", "456"), JobType.UNSTAKING_WITHDRAW,
+            Status.READY));
+
+    for (int i = 0; i < 10; i++) {
+      jobManager.runJobBatch();
+
+      Thread.sleep(1000);
+    }
+
   }
 }
